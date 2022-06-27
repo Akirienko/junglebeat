@@ -63,7 +63,7 @@
           </a>
         </div>
         <div class="log-in">
-          <a href="#">
+          <a href="/">
             Log in
             <svg
               viewBox="0 0 24 22"
