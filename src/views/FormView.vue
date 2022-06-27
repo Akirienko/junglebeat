@@ -20,16 +20,16 @@
               {{ $prismic.asText(formData.title_social) }}
             </h5>
             <div class="social-list">
-              <a href="">
+              <a href="https://discord.gg/ujnt9Mdu">
                 <img src="@/assets/img/social/discord.png" alt="discord icon" />
               </a>
-              <a href="http://t.me/AntonyKyriienko" target="_blank">
+              <a href="http://t.me/JungleBeat" target="_blank">
                 <img
                   src="@/assets/img/social/telegram.png"
                   alt="telegram icon"
                 />
               </a>
-              <a href="">
+              <a href="https://join.skype.com/invite/hU5jVUKFKygZ">
                 <img src="@/assets/img/social/skype.png" alt="skype icon" />
               </a>
             </div>
