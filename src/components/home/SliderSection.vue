@@ -1,13 +1,20 @@
 <template>
   <section class="container">
-    <carousel :settings="settings" :breakpoints="breakpoints">
+    <carousel
+      :autoplay="3000"
+      :wrap-around="true"
+      :settings="settings"
+      :breakpoints="breakpoints"
+    >
       <slide v-for="(slide, idx) in sliderSectionData.items" :key="idx">
         <div class="slider-container">
-          <div class="img-slide">
-            <img :src="slide.image_slide.url" alt="" />
+          <div>
+            <div class="img-slide">
+              <img :src="slide.image_slide.url" alt="" />
+            </div>
+            <h2>{{ slide.title_slide }}</h2>
+            <p>{{ slide.description_slide }}</p>
           </div>
-          <h2>{{ slide.title_slide }}</h2>
-          <p>{{ slide.description_slide }}</p>
           <div class="slider-btns">
             <InnerButton innerLink="/price">Узнать цену</InnerButton>
             <InnerButton innerLink="/form">Стать поставщиком</InnerButton>
@@ -108,17 +115,16 @@ export default {
 
 @media (min-width: 1020px) {
   .carousel__slide {
-    transition: 0.5s;
-    transform: scale(0.9);
+    align-items: stretch;
     .slider-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: 0.5s;
       // padding: 4rem;
       p {
         margin-bottom: 5rem;
       }
-    }
-    &.carousel__slide--active {
-      transform: scale(1);
     }
     .slider-btns {
       display: flex;

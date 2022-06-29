@@ -25,7 +25,7 @@
       </div>
       <div class="main-price">
         <p v-if="priceGame">
-          {{ priceGame }} - <span>{{ price[priceGame] }}</span>
+          {{ priceGame }} - <span>{{ price[priceGame] }}$</span>
         </p>
       </div>
     </div>
@@ -108,27 +108,6 @@ export default {
         color: black;
       }
     }
-    // select {
-    //   display: block;
-    //   font-size: 16px;
-    //   font-family: sans-serif;
-    //   font-weight: 700;
-    //   color: #444;
-    //   line-height: 1.3;
-    //   padding: 0.6em 1.4em 0.5em 0.8em;
-    //   width: 100%;
-    //   max-width: 100%;
-    //   box-sizing: border-box;
-    //   margin: 0;
-    //   border: 1px solid #aaa;
-    //   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-    //   border-radius: 0.5em;
-    //   -moz-appearance: none;
-    //   -webkit-appearance: none;
-    //   appearance: none;
-    //   background-color: #fff;
-
-    // }
   }
   .main-price {
     text-align: center;
