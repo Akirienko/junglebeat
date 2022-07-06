@@ -1,11 +1,6 @@
 <template>
   <section class="about">
     <div class="container">
-      <!-- <img
-        src="@/assets/img/homeThirdS/bg3shome.png"
-        alt="bg-about"
-        class="bg-about"
-      /> -->
       <div class="about-title">
         <h2>{{ $prismic.asText(whyWe.primary.title) }}</h2>
       </div>

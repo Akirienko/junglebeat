@@ -100,27 +100,12 @@ export default {
       } finally {
         this.$refs.formSend.reset();
       }
-      // .then(
-      //   (result) => {
-      //     console.log("SUCCESS!", result.text);
-      //     alert("Форма отправленна");
-      //     result.finally(() => {
-      //       this.$refs.form.reset();
-
-      //       // завершён (успешно или с ошибкой)
-      //     });
-      //   },
-      //   (error) => {
-      //     console.log("FAILED...", error.text);
-      //   }
-      // );
     },
     async getFormPage() {
       await this.$prismic.client
         .getByID("YoPToxEAACIAB5pc")
         .then((data) => (this.formData = data.data))
         .catch((err) => console.error(err));
-      console.log(this.formData);
     },
   },
   created() {

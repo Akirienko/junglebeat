@@ -12,6 +12,7 @@
     "@prismicio/vue": "^3.0.0-beta.6",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue-responsive-video-background-player": "^2.2.1",
     "vue-router": "^4.0.3",
     "vue3-carousel": "^0.1.38"
   },
