@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container slider">
     <carousel
       :autoplay="3000"
       :wrap-around="true"
@@ -37,7 +37,6 @@
 <script>
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
-// import ExternalButton from "@/components/buttons/ExternalButton.vue";
 import InnerButton from "@/components/buttons/InnerButton.vue";
 
 export default {
@@ -74,7 +73,6 @@ export default {
 <style lang="scss" scoped>
 .carousel__slide {
   padding: 0 2rem;
-  // margin-right: 4rem;
   .slider-container {
     display: flex;
     flex-direction: column;
@@ -114,6 +112,9 @@ export default {
 }
 
 @media (min-width: 1020px) {
+  .slider {
+    top: -5rem;
+  }
   .carousel__slide {
     align-items: stretch;
     .slider-container {
@@ -121,7 +122,6 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       transition: 0.5s;
-      // padding: 4rem;
       p {
         margin-bottom: 5rem;
       }
@@ -159,8 +159,6 @@ export default {
     .slider-btns {
       display: flex;
       flex-direction: row;
-      // justify-content: center;
-      // align-items: center;
       a {
         &:first-child {
           margin: 0 2rem 0 0;

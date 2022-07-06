@@ -55,7 +55,6 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.dataGames = data;
-        console.log(this.dataGames);
       });
   },
   watch: {
@@ -64,8 +63,6 @@ export default {
         this.dataGame = this.dataGames.filter(
           (game) => game.name == this.nameGame
         )[0].servers;
-        // this.dataGame = this.dataGames[this.nameGame];
-        console.log("this.dataGame", this.dataGame);
         this.serverGame = "";
         this.priceGame = "";
       }
@@ -75,14 +72,11 @@ export default {
         this.dataServer = this.dataGame.filter(
           (game) => game.title == this.serverGame
         );
-        // console.log("this.dataServer", this.dataServer);
         this.priceGame = "";
       }
     },
-    priceGame: function (val) {
-      console.log(val);
+    priceGame: function () {
       this.price = this.dataServer[0];
-      console.log("this.price", this.price);
     },
   },
 };

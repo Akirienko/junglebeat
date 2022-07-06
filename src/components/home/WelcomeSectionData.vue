@@ -1,5 +1,11 @@
 <template>
   <section class="home-welcome">
+    <video-background
+      :src="require(`@/video/video.mp4`)"
+      style="position: absolute; width: 100%; height: 100%; z-index: -1"
+      class="video"
+    >
+    </video-background>
     <div class="container">
       <div class="welcome-content">
         <div class="welcome-content__title">
@@ -37,6 +43,8 @@
 
 <script>
 import InnerButton from "@/components/buttons/InnerButton.vue";
+// import VideoBackground from "vue-responsive-video-background-player";
+// import video from "@/assets/video.mp4"; // Or '@/assets/demo.mp4' depending on what loader you use.
 
 export default {
   name: "WelcomeSectionData",
@@ -52,6 +60,7 @@ export default {
   },
   components: {
     InnerButton,
+    // VideoBackground,
   },
   props: {
     welcomeSectionData: {
@@ -73,6 +82,9 @@ export default {
   background-size: cover;
   display: flex;
   align-items: center;
+  .video {
+    display: none;
+  }
   .welcome-content {
     &__title {
       margin-bottom: 3rem;
@@ -142,8 +154,12 @@ export default {
 
 @media (min-width: 1020px) {
   .home-welcome {
+    background-image: none;
     align-items: center;
     padding-bottom: 0;
+    .video {
+      display: block;
+    }
     .welcome-content {
       &__title {
         img {

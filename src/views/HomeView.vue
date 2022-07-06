@@ -45,12 +45,6 @@ export default {
         .getByID("Ym5d-hMAACUAifQS")
         .then((data) => (this.homeData = data.data.body))
         .catch((err) => console.error(err));
-      // console.log(this.homeData);
-      // const { data } = await this.$prismic.client.getByID("Ym5d-hMAACUAifQS");
-      // const homePageData = data;
-      // this.welcomeSectionData = homePageData.body;
-      // console.log(this.welcomeSectionData);
-      // console.log(homePageDataBody);
     },
   },
   created() {
