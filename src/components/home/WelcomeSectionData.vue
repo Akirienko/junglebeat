@@ -157,6 +157,15 @@ export default {
     background-image: none;
     align-items: center;
     padding-bottom: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0.4;
+      z-index: -1;
+    }
     .video {
       display: block;
     }
