@@ -18,9 +18,9 @@
 
         <select v-if="dataServer" v-model="priceGame">
           <option disabled value="">Выберите способ оплати</option>
-          <option>binancePrice</option>
-          <option>paypalPrice</option>
-          <option>webmoneyPrice</option>
+          <option value="binancePrice">Бинанс</option>
+          <option value="paypalPrice">Пейпал</option>
+          <option value="webmoneyPrice">Вебмани</option>
         </select>
       </div>
       <div class="main-price">
