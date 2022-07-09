@@ -74,7 +74,7 @@ export default {
       align-items: center;
       margin-bottom: 2rem;
       &:nth-child(even) {
-        justify-content: flex-end;
+        margin-left: 8rem;
       }
       &-img {
         margin-right: 2rem;
