@@ -3,20 +3,27 @@
     <div class="container">
       <div class="price-select">
         <select v-model="nameGame">
-          <option disabled value="">Выберите игру</option>
+          <option disabled value="" hidden>Выберите игру</option>
           <option v-for="info in dataGames" :key="info.index">
             {{ info.name }}
           </option>
         </select>
 
-        <select v-if="dataGame" v-model="serverGame">
-          <option disabled value="">Выберите сервер</option>
-          <option v-for="serverName in dataGame" :key="serverName.id">
-            {{ serverName.title }}
-          </option>
-        </select>
+        <div class="" v-if="nameGame">
+          <input
+            placeholder="Выберите сервер"
+            class="datalist"
+            list="server"
+            v-model="serverGame"
+          />
+          <datalist id="server">
+            <option v-for="serverName in dataGame" :key="serverName.id">
+              {{ serverName.title }}
+            </option>
+          </datalist>
+        </div>
 
-        <select v-if="dataServer" v-model="priceGame">
+        <select required v-model="priceGame" v-if="serverGame.length > 5">
           <option disabled value="">Выберите способ оплати</option>
           <option value="binancePrice">Бинанс</option>
           <option value="paypalPrice">Пейпал</option>
@@ -25,7 +32,7 @@
       </div>
       <div class="main-price">
         <p v-if="priceGame">
-          {{ priceGame }} - <span>{{ price[priceGame] }}$</span>
+          {{ currNamePrice }} - <span>{{ price[priceGame] }}$</span>
         </p>
       </div>
     </div>
@@ -47,6 +54,7 @@ export default {
 
       price: "",
       priceGame: "",
+      currNamePrice: "",
     };
   },
   methods: {},
@@ -77,6 +85,15 @@ export default {
     },
     priceGame: function () {
       this.price = this.dataServer[0];
+      if (this.priceGame == "binancePrice") {
+        this.currNamePrice = "Бинанс";
+      }
+      if (this.priceGame == "paypalPrice") {
+        this.currNamePrice = "Пейпал";
+      }
+      if (this.priceGame == "webmoneyPrice") {
+        this.currNamePrice = "Вебмани";
+      }
     },
   },
 };
@@ -90,7 +107,18 @@ export default {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    select:required:invalid {
+      color: rgba(255, 255, 255, 0.5);
+    }
     select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      text-indent: 1px;
+      text-overflow: "";
+    }
+    select,
+    .datalist {
+      border: 1px solid rgba(255, 255, 255, 0.5);
       background: transparent;
       width: 30rem;
       height: 5rem;
@@ -118,7 +146,8 @@ export default {
   .price {
     margin: 20rem 0;
     .price-select {
-      select {
+      select,
+      .datalist {
         width: 40rem;
         margin-bottom: 3rem;
       }
@@ -138,7 +167,8 @@ export default {
   .price {
     margin: 20rem 0;
     .price-select {
-      select {
+      select,
+      .datalist {
         width: 28rem;
         margin: 0 2rem 0 0;
         &:last-child {
@@ -158,7 +188,8 @@ export default {
   .price {
     margin: 20rem 0;
     .price-select {
-      select {
+      select,
+      .datalist {
         width: 33rem;
         margin: 0 5rem 0 0;
         &:last-child {
