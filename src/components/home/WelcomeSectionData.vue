@@ -114,6 +114,10 @@ export default {
         width: 30rem;
         background: #2cd6e1;
         color: #000;
+        &:hover {
+          background: white;
+          color: #2cd6e1;
+        }
       }
     }
   }

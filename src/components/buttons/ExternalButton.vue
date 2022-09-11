@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style lanf="scss" scoped>
+<style scoped lang="scss">
 a {
   height: 6rem;
   background: #2cd6e1;
@@ -26,5 +26,9 @@ a {
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 2rem;
+  &:hover {
+    background: black;
+    color: #2cd6e1;
+  }
 }
 </style>
