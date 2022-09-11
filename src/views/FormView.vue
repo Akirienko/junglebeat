@@ -20,7 +20,7 @@
               {{ $prismic.asText(formData.title_social) }}
             </h5>
             <div class="social-list">
-              <a href="https://discord.gg/ujnt9Mdu">
+              <a href="https://discord.gg/amyZ3bDJag">
                 <img src="@/assets/img/social/discord.png" alt="discord icon" />
               </a>
               <a href="http://t.me/JungleBeat" target="_blank">
