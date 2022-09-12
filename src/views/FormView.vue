@@ -56,17 +56,70 @@
               placeholder="Имя"
               class="input-form"
             />
-            <input
+            <!-- <input
               type="email"
               name="user_email"
               placeholder="E-mail"
               class="input-form"
+            /> -->
+            <div class="social-name">
+              <div class="social-name__type">
+                <input
+                  type="radio"
+                  id="Telegram"
+                  value="Telegram"
+                  v-model="picked"
+                />
+                <label for="Telegram">Telegram*</label>
+              </div>
+
+              <div class="social-name__type">
+                <input type="radio" id="Skype" value="Skype" v-model="picked" />
+                <label for="Skype">Skype*</label>
+              </div>
+
+              <div class="social-name__type">
+                <input
+                  type="radio"
+                  id="Discord"
+                  value="Discord"
+                  v-model="picked"
+                />
+                <label for="Discord">Discord*</label>
+              </div>
+            </div>
+
+            <input
+              v-if="picked == 'Telegram'"
+              type="Telegram"
+              name="user_telegram"
+              v-model="telegram"
+              :placeholder="picked"
+              class="input-form social-input"
             />
+            <input
+              v-if="picked == 'Skype'"
+              type="Skype"
+              name="user_skype"
+              v-model="skype"
+              :placeholder="picked"
+              class="input-form social-input"
+            />
+            <input
+              v-if="picked == 'Discord'"
+              type="Discord"
+              name="user_discord"
+              v-model="discord"
+              :placeholder="picked"
+              class="input-form social-input"
+            />
+
             <textarea
               name="message"
               placeholder="Доп. информация..."
               class="input-form"
             ></textarea>
+
             <input class="btn-send" type="submit" value="Отправить заявку" />
           </form>
         </div>
@@ -82,23 +135,32 @@ export default {
   data: () => {
     return {
       formData: [],
+      picked: "",
+      telegram: "",
+      skype: "",
+      discord: "",
     };
   },
   methods: {
     sendEmail() {
-      emailjs.sendForm(
-        "service_ledsz8o",
-        "template_mmovlqu",
-        this.$refs.formSend,
-        "y9QcRFHeWaQD2G7xN"
-      );
-      try {
-        sendForm();
-        console.log("SUCCESS!");
-      } catch (err) {
-        console.log("FAILED...", err);
-      } finally {
-        this.$refs.formSend.reset();
+      if (this.telegram != "" || this.skype != "" || this.discord != "") {
+        emailjs.sendForm(
+          "service_ledsz8o",
+          "template_mmovlqu",
+          this.$refs.formSend,
+          "y9QcRFHeWaQD2G7xN"
+        );
+        try {
+          sendForm();
+          console.log("SUCCESS!");
+          alert("Форма отправленна успешно!");
+        } catch (err) {
+          console.log("FAILED...", err);
+        } finally {
+          this.$refs.formSend.reset();
+        }
+      } else {
+        alert("Заполните поле соц сети");
       }
     },
     async getFormPage() {
@@ -217,6 +279,28 @@ export default {
             transform: scale(1.1);
           }
         }
+        .social-name {
+          display: flex;
+          align-items: center;
+          margin-bottom: 2rem;
+          &__type {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem;
+            label {
+              font-size: 1.6rem;
+            }
+            input {
+              width: 3rem;
+              height: 3rem;
+              margin-right: 1rem;
+              margin-bottom: 0;
+            }
+          }
+        }
+        // .social-input {
+        //   margin-top: 2rem;
+        // }
       }
     }
   }
@@ -257,7 +341,7 @@ export default {
       }
       & > img {
         max-width: 110rem;
-        max-height: 81rem;
+        max-height: 84rem;
       }
       &__info {
         .social {
